@@ -12,6 +12,10 @@ bevy_mod_speedup is a collection of ways to increase the performance of your app
 
 ## Description
 
+> [!NOTE]  
+> This repository is open for additional features and the expansion of existing features to other platforms.  
+> It is currently limited to the features I use in my personal project and the platforms I have available.
+
 bevy_mod_speedup contains a collection of techniques to make your game (or application) more performant.
 This is mostly achieved by interacting with the system the game runs on.
 One example is adjusting the energy saving state of the system.
@@ -57,13 +61,13 @@ Run the example with `cargo run --example egui --features="egui"`.
 
 Feature support on different platform:
 
-|                        | in `full_speed` |     Android     |       iOS       |       Linux        |      MacOS      |      Wasm       |      Windows       |
-| :--------------------- | :-------------: | :-------------: | :-------------: | :----------------: | :-------------: | :-------------: | :----------------: |
-| `exclusive_fullscreen` |       no        | :grey_question: | :grey_question: |  :grey_question:   | :grey_question: | :grey_question: | :white_check_mark: |
-| `power`                |       yes       | :grey_question: | :grey_question: |  :grey_question:   | :grey_question: | :grey_question: | :white_check_mark: |
-| `priority`             |       yes       | :grey_question: | :grey_question: | :white_check_mark: | :grey_question: | :grey_question: | :white_check_mark: |
-| `request_fast_gpu`     |       yes       | :grey_question: | :grey_question: |  :grey_question:   | :grey_question: | :grey_question: | :white_check_mark: |
-| `unattended`           |       no        | :grey_question: | :grey_question: |  :grey_question:   | :grey_question: | :grey_question: | :white_check_mark: |
+|                        | in `full_speed` |       Linux        |      Windows       |
+| :--------------------- | :-------------: | :----------------: | :----------------: |
+| `exclusive_fullscreen` |       no        |  :grey_question:   | :white_check_mark: |
+| `power`                |       yes       |  :grey_question:   | :white_check_mark: |
+| `priority`             |       yes       | :white_check_mark: | :white_check_mark: |
+| `request_fast_gpu`     |       yes       |  :grey_question:   | :white_check_mark: |
+| `unattended`           |       no        |  :grey_question:   | :white_check_mark: |
 
 __Legend:__  
 :grey_question: = To be evaluated  
