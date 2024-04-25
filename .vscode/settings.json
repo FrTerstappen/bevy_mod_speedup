@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
-        "fullscreen"
+        "egui",
+        "fullscreen",
+        "libc"
     ]
 }

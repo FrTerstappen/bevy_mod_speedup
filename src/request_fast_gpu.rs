@@ -45,9 +45,7 @@ pub struct RequestFastGpuPlugin;
 impl Plugin for RequestFastGpuPlugin {
     fn build(
         &self,
-        app: &mut App,
+        _app: &mut App,
     ) {
-        app.register_type::<RequestFastGpuAdjustment>();
-        app.insert_resource(RequestFastGpuAdjustment::NotSupportingStatus);
     }
 }
