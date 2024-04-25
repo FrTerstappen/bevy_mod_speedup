@@ -32,17 +32,28 @@ These tips can not be implemented in a library and need to be done directly in y
 
 ### Status resources
 
-The features each add a resource `FeatureNameAdjustment` that can be used to check the current status of the adjustment.
-These resources are enums with variants describing the current status.
-They start with a value of `Unknown`.
+The resource `SpeedupAdjustments` can be used to check the status of the adjustments.
+The features each add a field to the resource that matches the feature name.
+These fields are enums with variants describing the current status.
 
 ## Features
 
 To be as modular as possible this library has most of its functionality gated behind separate features.  
 Most of those features are enable by default via the on-by-default feature `full_speed`.  
-You can see the availability of features and their inclusion in `full_speed` in this [table](#platform-support).
+You can see the availability of features and their inclusion in `full_speed` in this [table](#platform-dependent-features).
 
-### Platform support
+### Platform independent features
+
+The features described here are independent of the used platform.
+
+#### Feature: `egui`
+
+Adds a convenience method to display the `SpeedupAdjustments` with egui.
+See the `egui` example for usage.
+
+Run the example with `cargo run --example egui --features="egui"`.
+
+### Platform dependent features
 
 Feature support on different platform:
 
@@ -65,7 +76,7 @@ __Legend:__
 
 [^1]: Beside a log entry in some cases.
 
-### Feature: `exclusive_fullscreen`
+#### Feature: `exclusive_fullscreen`
 
 This features tries to fulfill all the conditions for fullscreen exclusivity.
 A application that is fullscreen exclusive can bypass the compositor and render slightly faster.
@@ -79,20 +90,20 @@ TODO: Add information about what is needed to achieve fullscreen exclusivity and
 
 [^2]: Can alternatively be set via "Application Manifests".
 
-### Feature: `power`
+#### Feature: `power`
 
 Adjusts system settings to disable power saving and/or use high performance mode.
 
 * __Windows:__ Sets the power scheme to `GUID_MIN_POWER_SAVINGS`, restores the original plan on `AppExit`.
 
-### Feature: `priority`
+#### Feature: `priority`
 
 This tries to adjust the priority of the application.
 
 * __Linux:__ Adjust the priority to -5. Only works with privileges
 * __Windows:__ Adjust the priority class to `ABOVE_NORMAL_PRIORITY_CLASS`
 
-### Feature: `request_fast_gpu`
+#### Feature: `request_fast_gpu`
 
 In hardware setups with integrated and dedicated GPUs it can be necessary to declare that the application wants to use the dedicated GPU.
 
@@ -112,7 +123,7 @@ The following two steps are needed:
 
 You can check for the exports with `dumpbin /exports $APPLICATION.exe`.
 
-### Feature: `unattended`
+#### Feature: `unattended`
 
 This feature allows the application to run unattended without limitations.
 This means disabling screen-saver, hibernation and similar features.
@@ -170,4 +181,4 @@ All code in this repository is dual-licensed under either:
 
 |   bevy | bevy_mod_speedup |
 | -----: | ---------------: |
-| 0.13.1 |            0.1.0 |
+| 0.13.1 |    0.1.0 - 0.2.0 |

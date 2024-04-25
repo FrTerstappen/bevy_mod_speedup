@@ -1,3 +1,6 @@
+#[cfg(feature = "egui")]
+pub mod egui;
+
 #[cfg(feature = "exclusive_fullscreen")]
 pub mod exclusive_fullscreen;
 
@@ -22,27 +25,45 @@ pub enum SpeedupSet {
     PostStartup,
 }
 
+#[derive(Debug, Default, Resource, Reflect)]
+#[reflect(Resource)]
+pub struct SpeedupAdjustments {
+    #[cfg(feature = "exclusive_fullscreen")]
+    exclusive_fullscreen: crate::exclusive_fullscreen::ExclusiveFullscreenAdjustment,
+    #[cfg(feature = "power")]
+    power:                crate::power::PowerAdjustment,
+    #[cfg(feature = "priority")]
+    priority:             crate::priority::PriorityAdjustment,
+    #[cfg(feature = "request_fast_gpu")]
+    request_fast_gpu:     crate::request_fast_gpu::RequestFastGpuAdjustment,
+    #[cfg(feature = "unattended")]
+    unattended:           crate::unattended::UnattendedAdjustment,
+}
+
 #[derive(Debug)]
 pub struct SpeedupPlugin;
 
 impl Plugin for SpeedupPlugin {
     fn build(
         &self,
-        _app: &mut App,
+        app: &mut App,
     ) {
+        app.register_type::<SpeedupAdjustments>();
+        app.init_resource::<SpeedupAdjustments>();
+
         #[cfg(feature = "exclusive_fullscreen")]
-        _app.add_plugins(exclusive_fullscreen::ExclusiveFullscreenPlugin);
+        app.add_plugins(exclusive_fullscreen::ExclusiveFullscreenPlugin);
 
         #[cfg(feature = "power")]
-        _app.add_plugins(power::PowerPlugin);
+        app.add_plugins(power::PowerPlugin);
 
         #[cfg(feature = "request_fast_gpu")]
-        _app.add_plugins(request_fast_gpu::RequestFastGpuPlugin);
+        app.add_plugins(request_fast_gpu::RequestFastGpuPlugin);
 
         #[cfg(feature = "priority")]
-        _app.add_plugins(priority::PriorityPlugin);
+        app.add_plugins(priority::PriorityPlugin);
 
         #[cfg(feature = "unattended")]
-        _app.add_plugins(unattended::UnattendedPlugin);
+        app.add_plugins(unattended::UnattendedPlugin);
     }
 }
