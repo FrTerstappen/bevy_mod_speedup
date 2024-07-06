@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated to bevy 0.14.0
 - Updated all other dependencies
+   Match MSRV 1.79.0 of bevy
 
 ## [0.2.0] - 2024-04-25
 
