@@ -11,7 +11,7 @@ homepage = "https://github.com/FrTerstappen/bevy_mod_speedup"
 documentation = "https://docs.rs/bevy_mod_speedup"
 readme = "README.md"
 edition = "2021"
-rust-version = "1.79.0"
+rust-version = "1.82.0"
 exclude = []
 
 [package.metadata.docs.rs]
@@ -44,8 +44,8 @@ unattended = []
 egui = ["dep:egui"]
 
 [dependencies]
-bevy = { version = "0.14.1", default-features = false }
-egui = { version = "0.28.1", default-features = false, optional = true }
+bevy = { version = "0.15.0", default-features = false }
+egui = { version = "0.29.1", default-features = false, optional = true }
 
 [target.'cfg(target_os = "android")'.dependencies]
 
@@ -64,8 +64,8 @@ nix = { version = "0.29.0", default-features = false, optional = true }
 windows = { version = "0.58.0", default-features = false, optional = true }
 
 [dev-dependencies]
-bevy = { version = "0.14.1", default-features = true }
-bevy_egui = { version = "0.28.0", default-features = false, features = [
+bevy = { version = "0.15.0", default-features = true }
+bevy_egui = { version = "0.31.1", default-features = false, features = [
     "default_fonts",
     "render",
 ] }
