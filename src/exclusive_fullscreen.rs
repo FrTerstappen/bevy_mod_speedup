@@ -25,10 +25,10 @@ impl Plugin for ExclusiveFullscreenPlugin {
 fn enable_dpi_awareness_windows() {
     use windows::Win32::UI::HiDpi::{
         AreDpiAwarenessContextsEqual,
+        DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
         GetDpiAwarenessContextForProcess,
         IsValidDpiAwarenessContext,
         SetProcessDpiAwarenessContext,
-        DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
     };
 
     let target = DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2;
