@@ -35,9 +35,9 @@ impl Plugin for PriorityPlugin {
 #[cfg(target_os = "windows")]
 fn adjust_priority_windows(mut adjustments: ResMut<'_, SpeedupAdjustments>) {
     use windows::Win32::System::Threading::{
+        ABOVE_NORMAL_PRIORITY_CLASS,
         GetCurrentProcess,
         SetPriorityClass,
-        ABOVE_NORMAL_PRIORITY_CLASS,
     };
 
     let priority_class = ABOVE_NORMAL_PRIORITY_CLASS;

@@ -33,10 +33,10 @@ fn adjust_unattended_windows(mut adjustments: ResMut<'_, SpeedupAdjustments>) {
     #[allow(unsafe_code)]
     unsafe {
         use windows::Win32::System::Power::{
-            SetThreadExecutionState,
             ES_CONTINUOUS,
             ES_DISPLAY_REQUIRED,
             ES_SYSTEM_REQUIRED,
+            SetThreadExecutionState,
         };
 
         let flags = ES_CONTINUOUS | ES_DISPLAY_REQUIRED | ES_SYSTEM_REQUIRED;

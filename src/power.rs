@@ -39,11 +39,11 @@ impl Plugin for PowerPlugin {
 #[cfg(target_os = "windows")]
 fn adjust_power_windows(mut adjustments: ResMut<'_, SpeedupAdjustments>) {
     use windows::{
-        core::GUID,
         Win32::System::{
             Power,
             SystemServices::GUID_MIN_POWER_SAVINGS,
         },
+        core::GUID,
     };
 
     // Determine currently active power scheme
