@@ -185,6 +185,7 @@ All code in this repository is dual-licensed under either:
 
 |   bevy | bevy_mod_speedup |
 | -----: | ---------------: |
+| 0.15.4 |            0.6.0 |
 | 0.15.0 |            0.5.0 |
 | 0.14.1 |            0.4.0 |
 | 0.14.0 |            0.3.0 |
