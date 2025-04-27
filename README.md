@@ -140,8 +140,8 @@ Include the library in your project by adding it to your `Cargo.toml`.
 
 ```toml
 [dependencies]
-bevy = "0.15.3"
-bevy_mod_speedup = "0.7.0"
+bevy = "0.16.0"
+bevy_mod_speedup = "0.8.0"
 ```
 
 Then add the `SpeedupPlugin` to your app like shown below.
@@ -185,6 +185,7 @@ All code in this repository is dual-licensed under either:
 
 |   bevy | bevy_mod_speedup |
 | -----: | ---------------: |
+| 0.16.0 |            0.8.0 |
 | 0.15.3 |            0.7.0 |
 | 0.15.1 |            0.6.0 |
 | 0.15.0 |            0.5.0 |
