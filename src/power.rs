@@ -7,7 +7,7 @@ use crate::SpeedupAdjustments;
 #[derive(Resource, Deref, DerefMut)]
 struct OriginalPowerScheme(windows::core::GUID);
 
-#[derive(Debug, Default, Resource, Reflect)]
+#[derive(Resource, Reflect, Debug, Default)]
 #[reflect(Resource)]
 pub enum PowerAdjustment {
     #[default]

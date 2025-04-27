@@ -20,14 +20,14 @@ pub mod unattended;
 
 use bevy::prelude::*;
 
-#[derive(Debug, SystemSet, Clone, PartialEq, Eq, Hash)]
+#[derive(SystemSet, Clone, Debug, Eq, Hash, PartialEq)]
 pub enum SpeedupSet {
     PreStartup,
     Startup,
     PostStartup,
 }
 
-#[derive(Debug, Default, Resource, Reflect)]
+#[derive(Resource, Reflect, Debug, Default)]
 #[reflect(Resource)]
 pub struct SpeedupAdjustments {
     #[cfg(feature = "exclusive_fullscreen")]

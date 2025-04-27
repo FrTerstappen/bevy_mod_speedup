@@ -3,7 +3,7 @@ use bevy::prelude::*;
 #[allow(unused_imports)]
 use crate::SpeedupAdjustments;
 
-#[derive(Debug, Default, Resource, Reflect)]
+#[derive(Resource, Reflect, Debug, Default)]
 #[reflect(Resource)]
 pub enum UnattendedAdjustment {
     #[default]
